@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
@@ -13,7 +14,8 @@ import javafx.scene.layout.GridPane;
 public class Main extends Application {
 	public static void main (String[]args) {
 		launch();
-	}	
+	}
+//---------------------Funcion principal
 	public void start (Stage stage) {
 		GridPane gridPane=creaPane();
 		BotonesIniciales(gridPane);
@@ -24,6 +26,7 @@ public class Main extends Application {
 		stage.setScene(scene);
 		stage.show();
 	}
+//------------------Botones
 private void BotonesIniciales(GridPane gridPane) { //Funcion para los botones
 	Button botonVehiculos=new Button("Vehiculos");
 	botonVehiculos.setPrefSize(300, 70);
@@ -36,6 +39,7 @@ private void BotonesIniciales(GridPane gridPane) { //Funcion para los botones
 	gridPane.add(botonConocenos, 17, 0);
 	
 	}
+//--------------------Cuadricula
 private GridPane creaPane() { //Creamos la cuadricula
 	GridPane gridPane=new GridPane();
 	gridPane.setAlignment(Pos.TOP_LEFT);
@@ -44,4 +48,33 @@ private GridPane creaPane() { //Creamos la cuadricula
 	gridPane.setHgap(30);
 	return gridPane;
 	}
+
+private void EtiquetasIniciales(GridPane gridPane) {
+	Label tecnologia=new Label("Tecnología para innovar");
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
