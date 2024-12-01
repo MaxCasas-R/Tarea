@@ -63,7 +63,8 @@ private void BotonesIniciales(HBox bArriba) { //Funcion para los botones
 private void EtiquetasIniciales(GridPane gridPane) {
 	Label tecnologia=new Label("Tecnología para innovar");
 	tecnologia.setFont(new Font("Arial",30));
-	Label precio=new Label("Precio desde: $400,000.00 Mxn");
+	Label precio=new Label("Precio desde:\n"+
+					"$400,000.00 Mxn");
 	precio.setFont(new Font("Arial",30));
 	Label caracteristicas=new Label("340 Hp 3.5 Lts TURBO");
 	caracteristicas.setFont(new Font("Arial",30));
@@ -73,7 +74,7 @@ private void EtiquetasIniciales(GridPane gridPane) {
 	gridPane.add(tecnologia, 0, 5);
 	gridPane.add(precio, 0, 7);
 	gridPane.add(caracteristicas, 0,9);
-	gridPane.add(descubrelo, 0, 11);
+	gridPane.add(descubrelo, 0, 10);
 	
 }
 //-------------------------Imagen
@@ -106,27 +107,6 @@ private HBox bArriba() {
 	barraArriba.setAlignment(Pos.CENTER);
 	
 	return barraArriba;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	}
 
 }
