@@ -19,7 +19,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
-public class InfoVehiculo extends Application{
+public class InfoBMW extends Application{
 	public static void main (String[]args) {
 		launch();
 	}
@@ -80,8 +80,6 @@ public class InfoVehiculo extends Application{
 	    gridPane.add(cotizalo,1,8);
 	    
 	    }
-
-
 //--------------------Cuadricula
 	private GridPane creaPane() { //Creamos la cuadricula
 		GridPane gridPane=new GridPane();
