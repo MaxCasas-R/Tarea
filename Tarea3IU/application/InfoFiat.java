@@ -29,7 +29,7 @@ public class InfoFiat extends Application{
 		main.setLeft(gridPane);
 		Scene scene=new Scene(main);
 		stage.setMaximized(true);//Con esto hacemos que este en pantalla completa
-		stage.setTitle("BMW M8");
+		stage.setTitle("Fiat");
 		stage.setScene(scene);
 		stage.show();
 		
