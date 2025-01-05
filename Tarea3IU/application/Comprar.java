@@ -1,6 +1,11 @@
 package application;
 
 import javafx.application.Application;
+
+
+
+
+
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -15,7 +20,13 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+
 public class Comprar extends Application {
+	
     private Stage mainStage; // Variable para guardar la referencia del Stage principal
 
     public static void main(String[] args) {
@@ -96,6 +107,7 @@ public class Comprar extends Application {
         Button button = new Button("Enviar");
         button.setMaxWidth(Double.MAX_VALUE);
         button.setMaxHeight(Double.MAX_VALUE);
+        button.setOnAction(e-> guardarDatos(box, textFieldNombre, textFieldApeP, textFieldApeM, textFieldCP, textFieldCorreo));
 
         // Botón "Regresar"
         Button buttonRegresar = new Button("Regresar");
@@ -120,6 +132,38 @@ public class Comprar extends Application {
         gridPane.add(checkBx, 1, 6);
         gridPane.add(button, 5, 5);
         gridPane.add(buttonRegresar, 5, 6); // Agregar el botón "Regresar"
+    }
+    
+    //Aqui agregamos la funcion de guardado en la bd:
+    
+    private void guardarDatos(ChoiceBox<String> box, TextField nombre, TextField apeP, TextField apeM, TextField cp, TextField correo) {
+    	String nombreUsuario= nombre.getText();
+    	String apellidoP= apeP.getText();
+    	String apellidoM=apeM.getText();
+    	String codigoPostal=cp.getText();
+    	String correoElectronico=correo.getText();
+    	
+    	//hacemos la sesion para la bd
+    	
+        String url = "jdbc:mysql://localhost:3306/agencia";
+        String user = "root";
+        String password = "18112003";
+        
+        String query="Insert into contactos (nombre, apellidop, apellidom, cp, correo) values (?,?,?,?,?)";
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+                PreparedStatement statement = connection.prepareStatement(query)) {
+
+               statement.setString(1, nombreUsuario);
+               statement.setString(2, apellidoP);
+               statement.setString(3, apellidoM);
+               statement.setString(4, codigoPostal);
+               statement.setString(5, correoElectronico);
+ 
+               statement.executeUpdate();
+               System.out.println("Datos guardados correctamente.");
+           } catch (Exception ex) {
+               ex.printStackTrace();
+           }
     }
 
     // Método para regresar a la pantalla principal (Main)
