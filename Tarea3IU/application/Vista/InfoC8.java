@@ -1,4 +1,4 @@
-package application;
+package application.Vista;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -14,7 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class InfoPorsche extends Application{
+public class InfoC8 extends Application{
     public static void main (String[] args) {
         launch();
     }
@@ -29,7 +29,7 @@ public class InfoPorsche extends Application{
         main.setLeft(gridPane);
         Scene scene = new Scene(main);
         stage.setMaximized(true); // Con esto hacemos que esté en pantalla completa
-        stage.setTitle("Porsche GT3RS");
+        stage.setTitle("Corvette C8");
         stage.setScene(scene);
         stage.show();
     }
@@ -37,44 +37,44 @@ public class InfoPorsche extends Application{
     private void etiquetasD(VBox informacion) {
         // Establecer un tamaño de fuente común
         Font fuente = new Font("Arial", 30);
-        Label titulo = new Label("Porsche GT3RS");
+        Label titulo = new Label("Corvette C8");
         titulo.setFont(fuente);
-        Label maximo = new Label("La perfección nunca es el principio");
+        Label maximo = new Label("Increíble potencia y rendimiento");
         maximo.setFont(fuente);
-        Label motor = new Label("-Pero siempre es el objetivo\n");
+        Label motor = new Label("-Motor V8 de 6.3 Lts\n" +
+                                "Potencia de 495 HP y 470 lb-pie de torque.");
         motor.setFont(fuente);
-        Label xDrive = new Label("El 911 GT3 RS. aún más deportivo");
+        Label xDrive = new Label("3 modos de manejo de alto desempeño: Tour, Sport y Track\n" +
+                                 "Rines delanteros de aluminio de 19” y traseros de 20");
         xDrive.setFont(fuente);
-        Label elemento = new Label("Optimizado para el circuito");
+        Label elemento = new Label("-Asientos GT2 forrados en piel napa con insertos en tacto piel\n");
         elemento.setFont(fuente);
-        Label hp = new Label("-525 hp, 750 Nm, 0-100 km/h en 3.2 s");
-        hp.setFont(fuente);
         // Agregar las etiquetas al VBox
-        informacion.getChildren().addAll(titulo, maximo, motor, xDrive, elemento, hp);
+        informacion.getChildren().addAll(titulo, maximo, motor, xDrive, elemento);
     }
 
     private void etiquetasI(GridPane gridPane, Stage stage) {
-        Image porsche = new Image(getClass().getResourceAsStream("Porsche.jpg"));
-        ImageView imagen = new ImageView(porsche);
-        // Ajustamos el tamaño de la imagen
-        imagen.setFitWidth(600);  // Ancho deseado
-        imagen.setFitHeight(500); // Altura deseada
+        Image corvette = new Image(getClass().getResourceAsStream("Corvette C8.jpg"));
+        ImageView imagen = new ImageView(corvette);
+        imagen.setFitWidth(700);
+        imagen.setFitHeight(350);
         imagen.setPreserveRatio(true);
         gridPane.add(imagen, 1, 2);
 
         Label Colores = new Label("Colores:\n" +
-                                  "-Black\n" +
-                                  "-Red");
+                "-Torch Red\n" +
+                "-Rapid Blue\n" +
+                "-Black");
         Colores.setFont(new Font("Arial", 30));
         gridPane.add(Colores, 1, 5);
 
         Button cotizalo = new Button("Cotízalo aquí");
         cotizalo.setPrefSize(200, 100);
-        cotizalo.setOnAction(e -> cambiarAComprar(stage));  // Llamamos al método para cambiar a la ventana de compra
+        cotizalo.setOnAction(e -> cambiarAComprar(stage));  // Evento para cambiar de escena
         gridPane.add(cotizalo, 1, 8);
     }
 
-    // Método para cambiar a la escena de compra
+    // Método para cambiar a la escena de comprar
     private void cambiarAComprar(Stage stage) {
         Comprar comprar = new Comprar();
         try {
@@ -84,8 +84,8 @@ public class InfoPorsche extends Application{
         }
     }
 
-    //-------------------- Cuadricula
-    private GridPane creaPane() { // Creamos la cuadricula
+    // Método para crear la cuadricula
+    private GridPane creaPane() {
         GridPane gridPane = new GridPane();
         gridPane.setAlignment(Pos.CENTER_LEFT);
         gridPane.setPadding(new Insets(20, 20, 20, 20));
@@ -94,7 +94,7 @@ public class InfoPorsche extends Application{
         return gridPane;
     }
 
-    //----------------------- VBox
+    // Método para crear el VBox de información
     private VBox informacion() {
         VBox info = new VBox(25);
         info.setPadding(new Insets(30));

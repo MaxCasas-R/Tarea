@@ -1,8 +1,10 @@
-package application;
+package application.Vista;
 
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,10 +14,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
 
-public class InfoM3 extends Application{
-    public static void main (String[] args) {
+public class InfoBMW extends Application {
+    public static void main(String[] args) {
         launch();
     }
 
@@ -24,60 +25,58 @@ public class InfoM3 extends Application{
         GridPane gridPane = creaPane();
         VBox info = informacion();
         etiquetasD(info);
-        etiquetasI(gridPane, stage);  // Pasa el stage al método
+        etiquetasI(gridPane, stage); // Modificado para pasar el stage
         main.setRight(info);
         main.setLeft(gridPane);
         Scene scene = new Scene(main);
         stage.setMaximized(true); // Con esto hacemos que esté en pantalla completa
-        stage.setTitle("BMW M3");
+        stage.setTitle("BMW M8");
         stage.setScene(scene);
         stage.show();
     }
 
     private void etiquetasD(VBox informacion) {
-        // Establecer un tamaño de fuente común
         Font fuente = new Font("Arial", 30);
-        Label titulo = new Label("BMW M3");
+        Label titulo = new Label("BMW M8");
         titulo.setFont(fuente);
-        Label maximo = new Label("Confort y potencia increibles");
+        Label maximo = new Label("Máximo dinamismo y exclusividad");
         maximo.setFont(fuente);
-        Label motor = new Label("-Motor de gasolina M Turbo de 6\n" +
-                                "cilindros de alto rendimiento de 425 hp.");
+        Label motor = new Label("-Motor de gasolina M TwinPower Turbo de 8\n" +
+                                "cilindros de alto rendimiento de 625 hp.");
         motor.setFont(fuente);
         Label xDrive = new Label("-M xDrive con diferencial M activa y transmisión\n" +
-                                 "M Steptronic de 7 velocidades con Drivelogic.");
+                                 "M Steptronic de 8 velocidades con Drivelogic.");
         xDrive.setFont(fuente);
         Label elemento = new Label("-Elementos de diseño y equipamientos\n" +
                                    "exclusivos.");
         elemento.setFont(fuente);
-        Label hp = new Label("-425 hp, 600 Nm, 0-100 km/h en 3.7 s");
+        Label hp = new Label("-625 hp, 750 Nm, 0-100 km/h en 3.2 s");
         hp.setFont(fuente);
-        // Agregar las etiquetas al VBox
         informacion.getChildren().addAll(titulo, maximo, motor, xDrive, elemento, hp);
     }
 
     private void etiquetasI(GridPane gridPane, Stage stage) {
-        Image bmwM3 = new Image(getClass().getResourceAsStream("bmw m3.png"));
-        ImageView imagen = new ImageView(bmwM3);
-        // Ajustamos el tamaño de la imagen
-        imagen.setFitWidth(600);  // Ancho deseado
-        imagen.setFitHeight(380); // Altura deseada
-        imagen.setPreserveRatio(true); // 
+        Image bmwM = new Image(getClass().getResourceAsStream("MBWM8.jpg"));
+        ImageView imagen = new ImageView(bmwM);
+        imagen.setFitWidth(600);
+        imagen.setFitHeight(500);
+        imagen.setPreserveRatio(true);
         gridPane.add(imagen, 1, 2);
 
         Label Colores = new Label("Colores:\n" +
-                                  "-Black\n" +
-                                  "-Red\n");
+                "-Frozen tazantine\n" +
+                "-Aventurine res\n" +
+                "-Brilliant white");
         Colores.setFont(new Font("Arial", 30));
         gridPane.add(Colores, 1, 5);
 
         Button cotizalo = new Button("Cotízalo aquí");
         cotizalo.setPrefSize(200, 100);
-        cotizalo.setOnAction(e -> cambiarAComprar(stage)); // Llamamos al método para cambiar a la ventana de compra
+        cotizalo.setOnAction(e -> cambiarAComprar(stage)); // Evento para cambiar de escena
         gridPane.add(cotizalo, 1, 8);
     }
 
-    // Método para cambiar a la escena de compra
+    // Método para cambiar a la escena de comprar
     private void cambiarAComprar(Stage stage) {
         Comprar comprar = new Comprar();
         try {
@@ -87,8 +86,8 @@ public class InfoM3 extends Application{
         }
     }
 
-    //-------------------- Cuadricula
-    private GridPane creaPane() { // Creamos la cuadricula
+    // Método para crear la cuadricula
+    private GridPane creaPane() {
         GridPane gridPane = new GridPane();
         gridPane.setAlignment(Pos.CENTER_LEFT);
         gridPane.setPadding(new Insets(20, 20, 20, 20));
@@ -97,7 +96,7 @@ public class InfoM3 extends Application{
         return gridPane;
     }
 
-    //----------------------- VBox
+    // Método para crear el VBox de información
     private VBox informacion() {
         VBox info = new VBox(25);
         info.setPadding(new Insets(30));

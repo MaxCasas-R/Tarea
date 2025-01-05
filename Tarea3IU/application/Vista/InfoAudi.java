@@ -1,4 +1,4 @@
-package application;
+package application.Vista;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;

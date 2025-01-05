@@ -1,4 +1,4 @@
-package application;
+package application.Vista;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -14,7 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class InfoC8 extends Application{
+public class InfoFiat extends Application{
     public static void main (String[] args) {
         launch();
     }
@@ -29,7 +29,7 @@ public class InfoC8 extends Application{
         main.setLeft(gridPane);
         Scene scene = new Scene(main);
         stage.setMaximized(true); // Con esto hacemos que esté en pantalla completa
-        stage.setTitle("Corvette C8");
+        stage.setTitle("Fiat");
         stage.setScene(scene);
         stage.show();
     }
@@ -37,44 +37,44 @@ public class InfoC8 extends Application{
     private void etiquetasD(VBox informacion) {
         // Establecer un tamaño de fuente común
         Font fuente = new Font("Arial", 30);
-        Label titulo = new Label("Corvette C8");
+        Label titulo = new Label("El Chincuichento");
         titulo.setFont(fuente);
-        Label maximo = new Label("Increíble potencia y rendimiento");
+        Label maximo = new Label("Todo un clásico");
         maximo.setFont(fuente);
-        Label motor = new Label("-Motor V8 de 6.3 Lts\n" +
-                                "Potencia de 495 HP y 470 lb-pie de torque.");
+        Label motor = new Label("-50 caballos de fuerza de sobra");
         motor.setFont(fuente);
-        Label xDrive = new Label("3 modos de manejo de alto desempeño: Tour, Sport y Track\n" +
-                                 "Rines delanteros de aluminio de 19” y traseros de 20");
+        Label xDrive = new Label("En un eje pequeño, seguro y confiable");
         xDrive.setFont(fuente);
-        Label elemento = new Label("-Asientos GT2 forrados en piel napa con insertos en tacto piel\n");
+        Label elemento = new Label("-Para todo lo que necesites");
         elemento.setFont(fuente);
+        Label hp = new Label("0 a 100 en 2 días hábiles");
+        hp.setFont(fuente);
         // Agregar las etiquetas al VBox
-        informacion.getChildren().addAll(titulo, maximo, motor, xDrive, elemento);
+        informacion.getChildren().addAll(titulo, maximo, motor, xDrive, elemento, hp);
     }
 
     private void etiquetasI(GridPane gridPane, Stage stage) {
-        Image corvette = new Image(getClass().getResourceAsStream("Corvette C8.jpg"));
-        ImageView imagen = new ImageView(corvette);
-        imagen.setFitWidth(700);
-        imagen.setFitHeight(350);
+        Image fiat = new Image(getClass().getResourceAsStream("Fiat.jpg"));
+        ImageView imagen = new ImageView(fiat);
+        // Ajustamos el tamaño de la imagen
+        imagen.setFitWidth(600);  // Ancho deseado
+        imagen.setFitHeight(500); // Altura deseada
         imagen.setPreserveRatio(true);
         gridPane.add(imagen, 1, 2);
 
         Label Colores = new Label("Colores:\n" +
-                "-Torch Red\n" +
-                "-Rapid Blue\n" +
-                "-Black");
+                                  "-El que se te ocurra\n" +
+                                  "-En todos hay");
         Colores.setFont(new Font("Arial", 30));
         gridPane.add(Colores, 1, 5);
 
         Button cotizalo = new Button("Cotízalo aquí");
         cotizalo.setPrefSize(200, 100);
-        cotizalo.setOnAction(e -> cambiarAComprar(stage));  // Evento para cambiar de escena
+        cotizalo.setOnAction(e -> cambiarAComprar(stage));  // Llamamos al método para cambiar a la ventana de compra
         gridPane.add(cotizalo, 1, 8);
     }
 
-    // Método para cambiar a la escena de comprar
+    // Método para cambiar a la escena de compra
     private void cambiarAComprar(Stage stage) {
         Comprar comprar = new Comprar();
         try {
@@ -84,8 +84,8 @@ public class InfoC8 extends Application{
         }
     }
 
-    // Método para crear la cuadricula
-    private GridPane creaPane() {
+    //-------------------- Cuadricula
+    private GridPane creaPane() { // Creamos la cuadricula
         GridPane gridPane = new GridPane();
         gridPane.setAlignment(Pos.CENTER_LEFT);
         gridPane.setPadding(new Insets(20, 20, 20, 20));
@@ -94,7 +94,7 @@ public class InfoC8 extends Application{
         return gridPane;
     }
 
-    // Método para crear el VBox de información
+    //----------------------- VBox
     private VBox informacion() {
         VBox info = new VBox(25);
         info.setPadding(new Insets(30));

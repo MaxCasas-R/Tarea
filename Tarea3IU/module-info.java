@@ -5,6 +5,6 @@ module Tarea3IU {
 	requires java.sql;
 	
 	opens application to javafx.graphics, javafx.fxml;
-
+	exports application.Vista to javafx.graphics;
     exports application;
 }

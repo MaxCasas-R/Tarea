@@ -1,5 +1,6 @@
-package application;
+package application.Vista;
 
+import application.Controlador.ControladorMain;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -14,9 +15,10 @@ import javafx.stage.Stage;
 import javafx.scene.text.Font;
 
 public class Vehiculos extends Application {
-    public static void main(String[] args) {
-        launch();
-    }
+	private ControladorMain controladorMain;
+    //public static void main(String[] args) {
+      //  launch();
+    //}
 
     public void start(Stage stage) throws Exception {
         GridPane gridPane = creaPane();
@@ -61,7 +63,7 @@ public class Vehiculos extends Application {
         labelFiat.setFont(fuenteGrande);
 
         // Cargar las imágenes
-        Image bmwM = new Image(getClass().getResourceAsStream("MBWM8.jpg"));
+        Image bmwM = new Image(getClass().getResourceAsStream("/application/Recursos/MBWM8.jpg"));
         ImageView imagen = new ImageView(bmwM);
         imagen.setFitWidth(350);
         imagen.setFitHeight(300);
@@ -78,7 +80,7 @@ public class Vehiculos extends Application {
             }
         });
 
-        Image corvette = new Image(getClass().getResourceAsStream("Corvette C8.jpg"));
+        Image corvette = new Image(getClass().getResourceAsStream("/application/Recursos/Corvette C8.jpg"));
         ImageView imagen2 = new ImageView(corvette);
         imagen2.setFitWidth(350);
         imagen2.setFitHeight(300);
@@ -95,7 +97,7 @@ public class Vehiculos extends Application {
             }
         });
 
-        Image bmwM3 = new Image(getClass().getResourceAsStream("bmw m3.png"));
+        Image bmwM3 = new Image(getClass().getResourceAsStream("/application/Recursos/bmw m3.png"));
         ImageView imagen3 = new ImageView(bmwM3);
         imagen3.setFitWidth(350);
         imagen3.setFitHeight(300);
@@ -112,7 +114,7 @@ public class Vehiculos extends Application {
             }
         });
 
-        Image porsche = new Image(getClass().getResourceAsStream("Porsche.jpg"));
+        Image porsche = new Image(getClass().getResourceAsStream("/application/Recursos/Porsche.jpg"));
         ImageView imagen4 = new ImageView(porsche);
         imagen4.setFitWidth(350);
         imagen4.setFitHeight(300);
@@ -129,7 +131,7 @@ public class Vehiculos extends Application {
             }
         });
 
-        Image audi = new Image(getClass().getResourceAsStream("AudiA1.jpg"));
+        Image audi = new Image(getClass().getResourceAsStream("/application/Recursos/AudiA1.jpg"));
         ImageView imagen5 = new ImageView(audi);
         imagen5.setFitWidth(350);
         imagen5.setFitHeight(300);
@@ -146,7 +148,7 @@ public class Vehiculos extends Application {
             }
         });
 
-        Image fiat = new Image(getClass().getResourceAsStream("Fiat.jpg"));
+        Image fiat = new Image(getClass().getResourceAsStream("/application/Recursos/Fiat.jpg"));
         ImageView imagen6 = new ImageView(fiat);
         imagen6.setFitWidth(350);
         imagen6.setFitHeight(300);

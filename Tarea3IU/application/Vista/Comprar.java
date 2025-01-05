@@ -1,4 +1,4 @@
-package application;
+package application.Vista;
 
 import javafx.application.Application;
 
@@ -23,6 +23,8 @@ import javafx.scene.text.Font;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+
+import application.Main;
 
 
 public class Comprar extends Application {

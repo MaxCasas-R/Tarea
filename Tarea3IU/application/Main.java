@@ -1,5 +1,8 @@
 package application;
 
+import application.Controlador.ControladorMain;
+import application.Vista.Comprar;
+import application.Vista.QuienesSomos;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -16,6 +19,7 @@ import javafx.scene.text.Font;
 
 public class Main extends Application {
     private Stage mainStage; // Variable para guardar la referencia del Stage principal
+    private ControladorMain controladorMain;
 
     public static void main(String[] args) {
         launch();
@@ -23,6 +27,7 @@ public class Main extends Application {
 
     public void start(Stage stage) {
         mainStage = stage; // Guardar la referencia del Stage
+        controladorMain=new ControladorMain(stage);
 
         // Crear el layout principal (BorderPane)
         BorderPane main = new BorderPane();
@@ -44,48 +49,19 @@ public class Main extends Application {
     private void BotonesIniciales(HBox bArriba) {
         Button botonVehiculos = new Button("Vehiculos");
         botonVehiculos.setPrefSize(300, 70);
-        botonVehiculos.setOnAction(e -> abrirVehiculos()); // Abrir ventana Vehiculos
+        botonVehiculos.setOnAction(e -> controladorMain.abrirVehiculos());
 
         Button botonComprar = new Button("Comprar");
         botonComprar.setPrefSize(300, 70);
-        botonComprar.setOnAction(e -> abrirComprar()); // Abrir ventana Comprar
+        botonComprar.setOnAction(e -> controladorMain.abrirComprar());
 
         Button botonConocenos = new Button("Conocenos");
         botonConocenos.setPrefSize(300, 70);
-        botonConocenos.setOnAction(e -> abrirQuienesSomos()); // Abrir ventana QuienesSomos
+        botonConocenos.setOnAction(e -> controladorMain.abrirQuienesSomos());
 
         bArriba.getChildren().addAll(botonVehiculos, botonComprar, botonConocenos);
     }
 
-    // Cambiar a la escena de "Vehiculos"
-    private void abrirVehiculos() {
-        try {
-            Vehiculos vehiculos = new Vehiculos();
-            vehiculos.start(mainStage); // Reemplazar la escena del Stage principal
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    // Cambiar a la escena de "Comprar"
-    private void abrirComprar() {
-        try {
-            Comprar comprar = new Comprar();
-            comprar.start(mainStage); // Reemplazar la escena del Stage principal
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    // Cambiar a la escena de "Quienes Somos"
-    private void abrirQuienesSomos() {
-        try {
-            QuienesSomos quienesSomos = new QuienesSomos();
-            quienesSomos.start(mainStage); // Reemplazar la escena del Stage principal
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     // Etiquetas iniciales
     private void EtiquetasIniciales(GridPane gridPane) {
@@ -106,7 +82,7 @@ public class Main extends Application {
 
     // Imagen
     private void Imagen(GridPane gridPane) {
-        Image porsche = new Image(getClass().getResourceAsStream("Porsche.jpg"));
+        Image porsche = new Image(getClass().getResourceAsStream("/application/Recursos/Porsche.jpg"));
         ImageView imagen = new ImageView(porsche);
 
         // Ajustamos el tamaño de la imagen
