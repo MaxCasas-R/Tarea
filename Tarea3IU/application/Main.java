@@ -1,8 +1,6 @@
 package application;
 
 import application.Controlador.ControladorMain;
-import application.Vista.Comprar;
-import application.Vista.QuienesSomos;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -58,8 +56,12 @@ public class Main extends Application {
         Button botonConocenos = new Button("Conocenos");
         botonConocenos.setPrefSize(300, 70);
         botonConocenos.setOnAction(e -> controladorMain.abrirQuienesSomos());
+        
+        Button botonAdministrador = new Button("Administrador");
+        botonAdministrador.setPrefSize(300, 70);
+        botonAdministrador.setOnAction(e -> controladorMain.abrirAdministrador());
 
-        bArriba.getChildren().addAll(botonVehiculos, botonComprar, botonConocenos);
+        bArriba.getChildren().addAll(botonVehiculos, botonComprar, botonConocenos, botonAdministrador);
     }
 
 
@@ -67,9 +69,9 @@ public class Main extends Application {
     private void EtiquetasIniciales(GridPane gridPane) {
         Label tecnologia = new Label("Tecnología para innovar");
         tecnologia.setFont(new Font("Arial", 30));
-        Label precio = new Label("Precio desde:\n" + "$400,000.00 Mxn");
+        Label precio = new Label("\nPorsche GT3RS");
         precio.setFont(new Font("Arial", 30));
-        Label caracteristicas = new Label("340 Hp 3.5 Lts TURBO");
+        Label caracteristicas = new Label("Precio desde: $3,000,000 Mxn\n\n\n340 Hp 3.5 Lts TURBO");
         caracteristicas.setFont(new Font("Arial", 30));
         Label descubrelo = new Label("¡Descúbrelo!");
         descubrelo.setFont(new Font("Arial", 30));

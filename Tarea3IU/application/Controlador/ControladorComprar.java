@@ -10,7 +10,7 @@ public class ControladorComprar {
     public void guardarDatos(String nombreUsuario, String apellidoP, String apellidoM, String codigoPostal, String correoElectronico) {
         String url = "jdbc:mysql://localhost:3306/agencia";
         String user = "root";
-        String password = "18112003";
+        String password = "thegoku37";
         
         String query = "INSERT INTO contactos (nombre, apellidop, apellidom, cp, correo) VALUES (?, ?, ?, ?, ?)";
         

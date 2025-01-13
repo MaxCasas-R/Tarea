@@ -13,7 +13,8 @@ public class InfoFiat extends Application {
     public void start(Stage stage) {
         // Crear instancia del controlador general para Fiat
         ControlVehiEspecificos fiat = new ControlVehiEspecificos(
-            "Fiat 500", // Nombre del vehículo
+            "Fiat 500\n\n" // Nombre del vehículo
+        	+ "Precio: $300,000 MXN",
             "Todo un clásico", // Descripción
             "-50 caballos de fuerza de sobra.\n" +
             "En un eje pequeño, seguro y confiable.\n" +

@@ -13,7 +13,8 @@ public class InfoPorsche extends Application {
     public void start(Stage stage) {
         // Crear instancia del controlador general para Porsche GT3RS
         ControlVehiEspecificos porsche = new ControlVehiEspecificos(
-            "Porsche GT3RS", // Nombre del vehículo
+            "Porsche GT3RS\n\n" // Nombre del vehículo
+        	+ "Precio: $3,000,000 MXN",
             "La perfección nunca es el principio", // Descripción
             "-Pero siempre es el objetivo.\n" +
             "El 911 GT3 RS, aún más deportivo.\n" +

@@ -3,6 +3,7 @@ package application.Controlador;
 import application.Vista.Comprar;
 import application.Vista.QuienesSomos;
 import application.Vista.Vehiculos;
+import application.Vista.Administrador;
 import javafx.stage.Stage;
 
 public class ControladorMain {
@@ -37,6 +38,16 @@ public class ControladorMain {
         try {
             QuienesSomos quienesSomos = new QuienesSomos();
             quienesSomos.start(mainStage); // Reemplazar la escena del Stage principal
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+ // Cambiar a la escena de "Administrador"
+    public void abrirAdministrador() {
+        try {
+            Administrador administrador = new Administrador();
+            administrador.start(mainStage); // Reemplazar la escena del Stage principal
         } catch (Exception e) {
             e.printStackTrace();
         }

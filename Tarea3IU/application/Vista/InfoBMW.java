@@ -12,7 +12,8 @@ public class InfoBMW extends Application {
     public void start(Stage stage) {
         // Crear instancia del controlador general para BMW
         ControlVehiEspecificos bmw = new ControlVehiEspecificos(
-            "BMW M8", // Nombre del vehículo
+            "BMW M8\n\n"  // Nombre del vehículo
+            + "Precio: $3,455,000 MXN",
             "Máximo dinamismo y exclusividad", // Descripción
             "-Motor de gasolina M TwinPower Turbo de 8\n" +
             "cilindros de alto rendimiento de 625 hp.\n" +

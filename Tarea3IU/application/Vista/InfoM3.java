@@ -13,7 +13,8 @@ public class InfoM3 extends Application {
     public void start(Stage stage) {
         // Crear instancia del controlador general para BMW M3
         ControlVehiEspecificos bmw = new ControlVehiEspecificos(
-            "BMW M3", // Nombre del vehículo
+            "BMW M3\n\n" // Nombre del vehículo
+        	+ "Precio: $2,175,000 MXN",
             "Confort y potencia increíbles", // Descripción
             "-Motor de gasolina M Turbo de 6\n" +
             "cilindros de alto rendimiento de 425 hp.\n" +
